@@ -28,7 +28,7 @@ for i in fs:
         pvs = json.loads(subprocess.run(["pvs", "--units", UNIT, "--reportformat", "json"], stdout=subprocess.PIPE).stdout)
         for pv in pvs['report'][0]['pv']:
             if float(pv['pv_free'].strip(UNIT)) > THRESHOLD:
-                #print("VG {} has {} free".format(pv['vg_name'], pv['pv_free']))   ############ change if want to see space even is above threshold
+                #print("VG {} has {} free".format(pv['vg_name'], pv['pv_free']))   ############ change if want to see space even if above threshold
                 lvmname = ("{}".format(get_device_from_mount(i).decode()))
             #lvmname = get_device_from_mount(i).decode()     <--------- can possible be used to get lvm, not tested
                 size = "2G"
